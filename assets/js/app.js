@@ -113,9 +113,6 @@ function createCard(listing) {
     ? `<span class="badge badge-rent">For Rent</span>`
     : `<span class="badge badge-sale">For Sale</span>`;
 
-  const featuredBadge = listing.featured
-    ? `<span class="badge-featured">Featured</span>` : '';
-
   const psfHtml = listing.psf ? `<div class="card-psf">${formatPsf(listing.psf)}</div>` : '';
   const carHtml = listing.carparks
     ? `<span class="spec">${ICONS.car} ${listing.carparks} Car</span>` : '';
@@ -125,7 +122,6 @@ function createCard(listing) {
   <div class="listing-card-img">
     ${imgHtml}
     ${statusBadge}
-    ${featuredBadge}
   </div>
   <div class="listing-card-body">
     <div class="card-price">${formatPrice(listing.price)}</div>
