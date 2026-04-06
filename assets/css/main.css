@@ -300,6 +300,18 @@ p  { font-size: 0.97rem; color: var(--text-muted); }
 .section-head.centered { text-align: center; }
 .section-head.centered > p { margin: 0.75rem auto 0; }
 
+.category-section { margin-bottom: 4rem; }
+.category-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
 /* =========================================
    LISTING CARDS
    ========================================= */

@@ -11,12 +11,12 @@
    CONFIG — edit these to match your site
    ============================================================ */
 const CONFIG = {
-  siteName:    'Your Name',
-  agentName:   'Your Name',
-  agentLicense:'CEA Reg. No. RXXXXXXXX',
-  agentPhone:  '+65 9123 4567',
-  agentEmail:  'agent@example.com',
-  agentPhoto:  'images/agent/photo.png',
+  siteName:    'Joshua C Estates',
+  agentName:   'Joshua Chew',
+  agentLicense:'CEA Reg. No. R072867H',
+  agentPhone:  '+65 8845 2785',
+  agentEmail:  'joshuachewshiyang@gmail.com',
+  agentPhoto:  'images/agent/JoshuaChew.jpg',
   currency:    'S$',
   dataDir:     'data/',
   listingsDir: 'listings/',
@@ -155,31 +155,40 @@ function createSkeletons(n = 3) {
 }
 
 /* ============================================================
-   PAGE: HOME — featured listings
+   PAGE: HOME — featured listings by category
    ============================================================ */
 async function initHome() {
-  const container = document.getElementById('featuredListings');
-  if (!container) return;
+  const containers = {
+    commercial:  document.getElementById('featuredCommercial'),
+    residential: document.getElementById('featuredResidential'),
+    rental:      document.getElementById('featuredRentals'),
+  };
+  if (!containers.commercial && !containers.residential && !containers.rental) return;
 
-  container.innerHTML = createSkeletons(3);
+  Object.values(containers).forEach(c => { if (c) c.innerHTML = createSkeletons(3); });
 
   try {
     const listings = await loadAllListings();
-    const featured = listings.filter(l => l.featured).slice(0, 3);
-    const toShow   = featured.length ? featured : listings.slice(0, 3);
 
-    if (!toShow.length) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <p>No listings yet. Add listings to the <code>listings/</code> folder.</p>
-        </div>`;
-      return;
-    }
+    const groups = {
+      commercial:  listings.filter(l => l.category === 'commercial'),
+      residential: listings.filter(l => l.category === 'residential'),
+      rental:      listings.filter(l => l.category === 'rental'),
+    };
 
-    container.innerHTML = toShow.map(createCard).join('');
+    Object.entries(groups).forEach(([key, items]) => {
+      const container = containers[key];
+      if (!container) return;
+      const featured = items.filter(l => l.featured);
+      const toShow   = (featured.length ? featured : items).slice(0, 3);
+      container.innerHTML = toShow.length
+        ? toShow.map(createCard).join('')
+        : `<div class="empty-state"><p>No ${key} listings yet.</p></div>`;
+    });
+
     triggerReveal();
   } catch (e) {
-    container.innerHTML = buildServerNotice();
+    Object.values(containers).forEach(c => { if (c) c.innerHTML = buildServerNotice(); });
     console.warn('Home listings error:', e);
   }
 }

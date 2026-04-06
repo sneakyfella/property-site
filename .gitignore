@@ -20,3 +20,10 @@ desktop.ini
 
 # Temp/junk directories
 {assets/
+
+# Claude Code memory
+.claude/
+
+# Client data files
+*.xlsx
+*.xls

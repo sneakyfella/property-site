@@ -13,5 +13,18 @@
       "id": "sentosa-cove",
       "active": true
     }
-  ]
+    ,{"id": "polaris-woodland-sale", "category": "commercial", "active": true}
+  ,{"id": "polaris-woodland-rent", "category": "rental", "active": true}
+  ,{"id": "tuas-bay-industrial-b2-sale", "category": "commercial", "active": true}
+  ,{"id": "tradehub21-boonlay-04a-sale", "category": "commercial", "active": true}
+  ,{"id": "tradehub21-boonlay-04-141-sale", "category": "commercial", "active": true}
+  ,{"id": "techcentre-toh-guan-sale", "category": "commercial", "active": true}
+  ,{"id": "techcentre-toh-guan-rent", "category": "rental", "active": true}
+  ,{"id": "north-link-admiralty-sale", "category": "commercial", "active": true}
+  ,{"id": "tuas-south-hsc-sale", "category": "commercial", "active": true}
+  ,{"id": "tuas-south-hsc-rent", "category": "rental", "active": true}
+  ,{"id": "tradehub21-terrace-maqroma-sale", "category": "commercial", "active": true}
+  ,{"id": "foodxchange-admiralty-sale", "category": "commercial", "active": true}
+  ,{"id": "foodxchange-admiralty-rent", "category": "rental", "active": true}
+]
 }

@@ -28,7 +28,7 @@ const CONFIG = {
   agentTitle:   'Senior Property Consultant',
   agentLicense: 'CEA Reg. No. RXXXXXXXX',
   agentPhone:   '+65 9123 4567',
-  agentEmail:   'agent@example.com',
+  agentEmail:   'joshuachewshiyang@gmail.com',
   agentPhoto:   'images/agent/photo.png',
   agentBio:     'Your bio here...',
   ...

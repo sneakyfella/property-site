@@ -4,6 +4,7 @@
   "id":           "template",
   "title":        "Property Name e.g. The Orchard Residences",
   "subtitle":     "Unit #XX-XX",
+  "category":     "residential",
   "type":         "Condominium",
   "status":       "For Sale",
 
@@ -70,9 +71,9 @@
   "dateAdded":    "2025-01-01",
 
   "agent": {
-    "name":    "Your Name",
-    "phone":   "+65 9123 4567",
-    "email":   "agent@example.com",
-    "license": "CEA Reg. No. RXXXXXXXX"
+	"name": "Joshua Chew",
+	"phone": "+65 8845 2785",
+	"email": "joshuachewshiyang@gmail.com",
+	"license": "CEA Reg. No. R072867H"
   }
 }
