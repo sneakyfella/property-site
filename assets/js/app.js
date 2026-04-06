@@ -194,7 +194,7 @@ async function initHome() {
 }
 
 /* ============================================================
-   PAGE: LISTINGS — full grid with filters
+   PAGE: LISTINGS — full grid with two-level filters
    ============================================================ */
 async function initListings() {
   const container = document.getElementById('listingsGrid');
@@ -211,21 +211,31 @@ async function initListings() {
     return;
   }
 
-  const countEl = document.getElementById('listingCount');
+  const countEl  = document.getElementById('listingCount');
+  const subBar   = document.getElementById('subFilters');
+  let primary    = 'all';
+  let sub        = 'all';
 
-  function render(filter = 'all') {
+  function render() {
     let filtered = allListings;
-    if (filter !== 'all') {
-      filtered = allListings.filter(l => {
-        if (filter === 'sale')    return l.status === 'For Sale';
-        if (filter === 'rent')    return l.status === 'For Rent';
-        if (filter === 'featured')return l.featured;
-        if (filter === 'condo')   return l.type?.toLowerCase().includes('condo');
-        if (filter === 'hdb')     return l.type?.toLowerCase().includes('hdb');
-        if (filter === 'landed')  return l.type?.toLowerCase().includes('landed');
+
+    if (primary === 'sale') filtered = filtered.filter(l => l.status === 'For Sale');
+    if (primary === 'rent') filtered = filtered.filter(l => l.status === 'For Rent');
+
+    if (sub !== 'all') {
+      filtered = filtered.filter(l => {
+        const type = l.type?.toLowerCase() || '';
+        const cat  = l.category?.toLowerCase() || '';
+        if (sub === 'commercial') return cat === 'commercial' || cat === 'rental' ||
+          type.includes('industrial') || type.includes('office') ||
+          type.includes('commercial') || type.includes('food');
+        if (sub === 'condo')   return type.includes('condo');
+        if (sub === 'hdb')     return type.includes('hdb');
+        if (sub === 'landed')  return type.includes('landed');
         return true;
       });
     }
+
     if (countEl) countEl.textContent = filtered.length;
     if (!filtered.length) {
       container.innerHTML = `
@@ -240,23 +250,39 @@ async function initListings() {
     triggerReveal();
   }
 
-  // Filter buttons
-  $$('.filter-btn').forEach(btn => {
+  // Primary filter buttons
+  $$('.filter-btn[data-primary]').forEach(btn => {
     btn.addEventListener('click', () => {
-      $$('.filter-btn').forEach(b => b.classList.remove('active'));
+      $$('.filter-btn[data-primary]').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      render(btn.dataset.filter);
+      primary = btn.dataset.primary;
+
+      if (primary === 'all') {
+        subBar?.classList.remove('visible');
+      } else {
+        subBar?.classList.add('visible');
+      }
+
+      // Reset sub filter
+      sub = 'all';
+      $$('.filter-sub').forEach(b => b.classList.remove('active'));
+      $$('.filter-sub[data-sub="all"]')[0]?.classList.add('active');
+
+      render();
     });
   });
 
-  // URL param filter
-  const typeParam = getParam('type');
-  if (typeParam) {
-    const btn = $(`.filter-btn[data-filter="${typeParam}"]`);
-    if (btn) { $$('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
-  }
+  // Sub filter buttons
+  $$('.filter-sub').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $$('.filter-sub').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      sub = btn.dataset.sub;
+      render();
+    });
+  });
 
-  render(typeParam || 'all');
+  render();
 }
 
 /* ============================================================

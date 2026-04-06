@@ -46,19 +46,24 @@
     <div class="container">
 
       <!-- Filter bar -->
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
-        <div class="filter-bar" style="margin-bottom:0">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="sale">For Sale</button>
-          <button class="filter-btn" data-filter="rent">For Rent</button>
-          <button class="filter-btn" data-filter="featured">Featured</button>
-          <button class="filter-btn" data-filter="condo">Condo</button>
-          <button class="filter-btn" data-filter="hdb">HDB</button>
-          <button class="filter-btn" data-filter="landed">Landed</button>
+      <div style="margin-bottom:2rem">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+          <div class="filter-bar" style="margin-bottom:0">
+            <button class="filter-btn active" data-primary="all">All</button>
+            <button class="filter-btn" data-primary="sale">For Sale</button>
+            <button class="filter-btn" data-primary="rent">For Rent</button>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-muted);white-space:nowrap">
+            Showing <strong id="listingCount" style="color:var(--text)">—</strong> listings
+          </p>
         </div>
-        <p style="font-size:0.82rem;color:var(--text-muted);white-space:nowrap">
-          Showing <strong id="listingCount" style="color:var(--text)">—</strong> listings
-        </p>
+        <div class="filter-bar filter-bar-sub" id="subFilters">
+          <button class="filter-sub active" data-sub="all">All Types</button>
+          <button class="filter-sub" data-sub="commercial">Commercial</button>
+          <button class="filter-sub" data-sub="condo">Condo</button>
+          <button class="filter-sub" data-sub="hdb">HDB</button>
+          <button class="filter-sub" data-sub="landed">Landed</button>
+        </div>
       </div>
 
       <!-- Grid — injected by app.js -->

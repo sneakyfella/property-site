@@ -646,6 +646,31 @@ textarea.form-input { min-height: 90px; resize: vertical; }
   background: var(--gold-glow);
 }
 
+.filter-bar-sub {
+  display: flex; flex-wrap: wrap; gap: 0.35rem;
+  margin-top: 0.65rem; margin-bottom: 0;
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 0.3s var(--ease), opacity 0.25s var(--ease);
+}
+.filter-bar-sub.visible {
+  max-height: 60px; opacity: 1;
+}
+.filter-sub {
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--border-dim);
+  border-radius: 100px;
+  font-size: 0.7rem; font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.filter-sub:hover, .filter-sub.active {
+  border-color: var(--gold-dark);
+  color: var(--gold-light);
+  background: var(--gold-glow);
+}
+
 /* =========================================
    CONTACT PAGE
    ========================================= */
