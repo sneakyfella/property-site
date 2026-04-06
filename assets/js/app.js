@@ -133,8 +133,8 @@ function createCard(listing) {
     <div class="card-title">${listing.title}</div>
     <div class="card-address">${ICONS.pin} ${listing.address}</div>
     <div class="card-specs">
-      <span class="spec">${ICONS.bed} ${listing.bedrooms} Bed</span>
-      <span class="spec">${ICONS.bath} ${listing.bathrooms} Bath</span>
+      ${listing.bedrooms ? `<span class="spec">${ICONS.bed} ${listing.bedrooms} Bed</span>` : ''}
+      ${listing.bathrooms ? `<span class="spec">${ICONS.bath} ${listing.bathrooms} Bath</span>` : ''}
       <span class="spec">${ICONS.area} ${formatSize(listing.size)}</span>
       ${carHtml}
     </div>
@@ -365,8 +365,8 @@ async function initListingDetail() {
           <div class="detail-block">
             <h3>Property Details</h3>
             <div class="specs-grid">
-              ${specBlock('Bedrooms',    listing.bedrooms)}
-              ${specBlock('Bathrooms',   listing.bathrooms)}
+              ${listing.bedrooms  ? specBlock('Bedrooms',  listing.bedrooms)  : ''}
+              ${listing.bathrooms ? specBlock('Bathrooms', listing.bathrooms) : ''}
               ${specBlock('Size',        listing.size ? formatSize(listing.size) : '—')}
               ${specBlock('Floor',       listing.floor ? `${listing.floor} / ${listing.totalFloors || '?'}` : '—')}
               ${specBlock('Tenure',      listing.tenure)}
