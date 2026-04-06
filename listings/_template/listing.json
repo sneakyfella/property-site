@@ -1,0 +1,78 @@
+{
+  "_instructions": "Copy this file to listings/YOUR-LISTING-ID/listing.json and fill in all fields. Run: ./new-listing.sh YOUR-LISTING-ID to auto-scaffold.",
+
+  "id":           "template",
+  "title":        "Property Name e.g. The Orchard Residences",
+  "subtitle":     "Unit #XX-XX",
+  "type":         "Condominium",
+  "status":       "For Sale",
+
+  "price":        2800000,
+  "priceDisplay": "S$2,800,000",
+  "psf":          2100,
+  "size":         1335,
+  "bedrooms":     3,
+  "bathrooms":    2,
+  "carparks":     1,
+  "floor":        12,
+  "totalFloors":  28,
+
+  "address":      "123 Example Road",
+  "district":     "D09",
+  "postalCode":   "000000",
+  "tenure":       "99-year Leasehold",
+  "TOP":          "2018",
+  "developer":    "Developer Name",
+
+  "description":  "Write a compelling multi-paragraph description here.\n\nYou can use \\n for new lines. Describe the unit layout, finishes, views, and lifestyle benefits.",
+
+  "highlights": [
+    "Unobstructed city / pool / sea view",
+    "Recently renovated with premium fittings",
+    "Walking distance to MRT",
+    "Top schools in the vicinity",
+    "Strong rental yield potential"
+  ],
+
+  "amenities": [
+    "50m Lap Pool",
+    "Gym & Fitness Centre",
+    "Tennis Court",
+    "BBQ Pavilion",
+    "Sky Garden",
+    "Club House",
+    "24-hr Security",
+    "Concierge"
+  ],
+
+  "nearbyMRT":     "Orchard MRT (5 min walk)",
+  "nearbySchools": [
+    "Anglo-Chinese School (Primary) – 1 km",
+    "Raffles Girls' School – 2 km"
+  ],
+  "nearbyMalls": [
+    "ION Orchard – 8 min walk",
+    "Takashimaya – 10 min walk"
+  ],
+
+  "photos": [
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg",
+    "photo4.jpg",
+    "photo5.jpg"
+  ],
+
+  "videoUrl":      "",
+  "virtualTour":   "",
+
+  "featured":     false,
+  "dateAdded":    "2025-01-01",
+
+  "agent": {
+    "name":    "Your Name",
+    "phone":   "+65 9123 4567",
+    "email":   "agent@example.com",
+    "license": "CEA Reg. No. RXXXXXXXX"
+  }
+}

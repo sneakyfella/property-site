@@ -1,0 +1,79 @@
+{
+  "id":           "sentosa-cove",
+  "title":        "Sentosa Cove Bungalow",
+  "subtitle":     "Ocean Drive",
+  "type":         "Landed – Detached Bungalow",
+  "status":       "For Sale",
+
+  "price":        18500000,
+  "priceDisplay": "S$18,500,000",
+  "psf":          2312,
+  "size":         8000,
+  "bedrooms":     5,
+  "bathrooms":    5,
+  "carparks":     3,
+  "floor":        2,
+  "totalFloors":  2,
+
+  "address":      "18 Ocean Drive, Sentosa Cove, Singapore 098370",
+  "district":     "D04",
+  "postalCode":   "098370",
+  "tenure":       "99-year Leasehold (from 2006)",
+  "TOP":          "2010",
+  "developer":    "Custom-built",
+
+  "description":  "An extraordinary waterfront bungalow set within the exclusive Sentosa Cove enclave — the only place in Singapore where foreigners may own landed property.\n\nThis magnificent 8,000 sqft detached villa sits on a rare corner plot with direct canal frontage and its own private jetty, offering berthing for a vessel up to 50 feet. The thoughtfully designed home features soaring double-volume ceilings, a grand entertaining pavilion, and seamless indoor-outdoor living spaces that open onto the private pool terrace.\n\nThe generously proportioned master suite occupies the entire upper floor east wing, with his-and-hers bathrooms, a private sitting room, and a wraparound balcony offering serene waterway views. A dedicated guest wing ensures privacy for visitors.",
+
+  "highlights": [
+    "Private jetty – berth for vessel up to 50 feet",
+    "Only place in Singapore where foreigners can own landed property",
+    "Rare corner waterfront plot with canal frontage",
+    "50-ft private pool & landscaped tropical garden",
+    "Smart home system — Crestron throughout",
+    "Minutes to Sentosa's beaches, Resorts World & golf courses"
+  ],
+
+  "amenities": [
+    "Private 50-ft Swimming Pool",
+    "Private Jetty (50 ft berthing)",
+    "3-Car Garage",
+    "Home Theatre",
+    "Wet & Dry Kitchen",
+    "Staff Quarters",
+    "Jacuzzi",
+    "Landscaped Garden",
+    "Smart Home (Crestron)",
+    "24-hr Gated Security"
+  ],
+
+  "nearbyMRT":     "Harbourfront MRT – 15 min drive / Sentosa Boardwalk",
+  "nearbySchools": [
+    "One World International School – 2 km",
+    "United World College (UWCSEA East) – 8 km"
+  ],
+  "nearbyMalls": [
+    "VivoCity – 12 min drive",
+    "Resorts World Sentosa – 8 min drive"
+  ],
+
+  "photos": [
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg",
+    "photo4.jpg",
+    "photo5.jpg"
+  ],
+
+  "videoUrl":     "",
+  "virtualTour":  "",
+
+  "featured":     true,
+  "dateAdded":    "2025-01-15",
+
+  "agent": {
+    "name":    "Your Name",
+    "phone":   "+65 9123 4567",
+    "email":   "agent@example.com",
+    "license": "CEA Reg. No. RXXXXXXXX"
+  }
+}

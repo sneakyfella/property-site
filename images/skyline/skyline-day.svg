@@ -1,0 +1,211 @@
+<svg viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a9fd4"/>
+      <stop offset="60%" stop-color="#87ceeb"/>
+      <stop offset="100%" stop-color="#c9e8f5"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a8fc4"/>
+      <stop offset="100%" stop-color="#2a6fa0"/>
+    </linearGradient>
+    <linearGradient id="bldgL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b0bec5"/>
+      <stop offset="100%" stop-color="#78909c"/>
+    </linearGradient>
+    <linearGradient id="bldgM" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cfd8dc"/>
+      <stop offset="100%" stop-color="#90a4ae"/>
+    </linearGradient>
+    <linearGradient id="mbsGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0e8f0"/>
+      <stop offset="100%" stop-color="#a0b4c4"/>
+    </linearGradient>
+    <filter id="haze">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1440" height="500" fill="url(#sky)"/>
+
+  <!-- Sun -->
+  <circle cx="1100" cy="80" r="50" fill="#ffe066" opacity="0.85"/>
+  <circle cx="1100" cy="80" r="65" fill="#ffe066" opacity="0.2"/>
+
+  <!-- Clouds -->
+  <g opacity="0.85">
+    <ellipse cx="200" cy="100" rx="80" ry="28" fill="white"/>
+    <ellipse cx="250" cy="90" rx="60" ry="24" fill="white"/>
+    <ellipse cx="160" cy="108" rx="50" ry="20" fill="white"/>
+    <ellipse cx="700" cy="70" rx="90" ry="26" fill="white"/>
+    <ellipse cx="760" cy="62" rx="65" ry="22" fill="white"/>
+    <ellipse cx="650" cy="78" rx="55" ry="18" fill="white"/>
+    <ellipse cx="1250" cy="110" rx="70" ry="22" fill="white"/>
+    <ellipse cx="1300" cy="100" rx="55" ry="19" fill="white"/>
+  </g>
+
+  <!-- Background buildings (hazy) -->
+  <g filter="url(#haze)" opacity="0.5" fill="#b0c4cf">
+    <rect x="0" y="260" width="40" height="140"/>
+    <rect x="45" y="240" width="35" height="160"/>
+    <rect x="85" y="255" width="30" height="145"/>
+    <rect x="1360" y="250" width="40" height="150"/>
+    <rect x="1400" y="265" width="40" height="135"/>
+  </g>
+
+  <!-- ===== SKYLINE ===== -->
+
+  <!-- Far-left cluster -->
+  <g fill="url(#bldgL)">
+    <rect x="30" y="270" width="28" height="130"/>
+    <rect x="62" y="250" width="24" height="150"/>
+    <rect x="90" y="265" width="20" height="135"/>
+    <rect x="74" y="244" width="8" height="10"/>
+  </g>
+
+  <!-- OUB/One Raffles Place area -->
+  <g fill="url(#bldgM)">
+    <rect x="125" y="200" width="34" height="200"/>
+    <polygon points="125,200 142,175 159,200" fill="#cfd8dc"/>
+    <rect x="163" y="230" width="28" height="170"/>
+    <rect x="195" y="245" width="22" height="155"/>
+  </g>
+
+  <!-- UOB Plaza -->
+  <g fill="url(#bldgL)">
+    <rect x="230" y="215" width="30" height="185"/>
+    <rect x="228" y="208" width="34" height="10"/>
+    <rect x="264" y="230" width="26" height="170"/>
+  </g>
+
+  <!-- MBFC towers -->
+  <g fill="url(#mbsGrad)">
+    <rect x="305" y="195" width="36" height="205"/>
+    <rect x="303" y="188" width="40" height="10"/>
+    <rect x="345" y="205" width="34" height="195"/>
+    <rect x="383" y="218" width="30" height="182"/>
+  </g>
+
+  <!-- Marina Bay Sands (iconic) -->
+  <g>
+    <!-- Tower 1 -->
+    <rect x="430" y="230" width="38" height="170" fill="#d0dde8"/>
+    <!-- Tower 2 -->
+    <rect x="478" y="225" width="38" height="175" fill="#c8d8e5"/>
+    <!-- Tower 3 -->
+    <rect x="526" y="230" width="38" height="170" fill="#d0dde8"/>
+    <!-- Sky Park (boat shape) -->
+    <path d="M422,228 Q502,200 572,228 L572,240 Q502,215 422,240 Z" fill="#b8ccd8"/>
+    <!-- Pool hint on top -->
+    <rect x="440" y="216" width="116" height="6" fill="#5bb8d4" opacity="0.7"/>
+    <!-- Lotus spires on towers -->
+    <polygon points="449,230 456,210 463,230" fill="#c0ced8"/>
+    <polygon points="497,225 504,205 511,225" fill="#b8ccd8"/>
+    <polygon points="545,230 552,210 559,230" fill="#c0ced8"/>
+  </g>
+
+  <!-- ArtScience Museum dome area -->
+  <g fill="#e0e8ee">
+    <ellipse cx="600" cy="370" rx="42" ry="18"/>
+    <rect x="582" y="350" width="36" height="22"/>
+    <!-- petals -->
+    <ellipse cx="590" cy="350" rx="10" ry="28" transform="rotate(-20,590,350)" fill="#d8e4ec"/>
+    <ellipse cx="600" cy="344" rx="10" ry="28" fill="#e0eaf2"/>
+    <ellipse cx="610" cy="350" rx="10" ry="28" transform="rotate(20,610,350)" fill="#d8e4ec"/>
+  </g>
+
+  <!-- Esplanade "Durian" domes -->
+  <g>
+    <circle cx="670" cy="355" r="35" fill="#c8d4dc" opacity="0.9"/>
+    <circle cx="715" cy="360" r="30" fill="#c0ccd4" opacity="0.9"/>
+    <!-- spike texture dots -->
+    <g fill="#a8b8c4" opacity="0.6">
+      <circle cx="658" cy="348" r="2"/><circle cx="665" cy="340" r="2"/><circle cx="673" cy="345" r="2"/>
+      <circle cx="680" cy="338" r="2"/><circle cx="670" cy="333" r="2"/><circle cx="663" cy="356" r="2"/>
+      <circle cx="705" cy="352" r="2"/><circle cx="713" cy="345" r="2"/><circle cx="720" cy="352" r="2"/>
+      <circle cx="715" cy="338" r="2"/><circle cx="708" cy="344" r="2"/>
+    </g>
+  </g>
+
+  <!-- Central tall cluster -->
+  <g fill="url(#bldgM)">
+    <rect x="755" y="210" width="30" height="190"/>
+    <rect x="789" y="195" width="36" height="205"/>
+    <rect x="787" y="188" width="40" height="10"/>
+    <rect x="829" y="220" width="28" height="180"/>
+  </g>
+
+  <!-- CapitaGreen / tall glass tower -->
+  <g>
+    <rect x="875" y="185" width="38" height="215" fill="#b8d0c8"/>
+    <rect x="873" y="178" width="42" height="10" fill="#a8c4bc"/>
+    <!-- glass lines -->
+    <line x1="884" y1="185" x2="884" y2="400" stroke="#c8e0d8" stroke-width="1" opacity="0.5"/>
+    <line x1="893" y1="185" x2="893" y2="400" stroke="#c8e0d8" stroke-width="1" opacity="0.5"/>
+    <line x1="902" y1="185" x2="902" y2="400" stroke="#c8e0d8" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- Mid-right cluster -->
+  <g fill="url(#bldgL)">
+    <rect x="930" y="235" width="28" height="165"/>
+    <rect x="962" y="220" width="32" height="180"/>
+    <rect x="960" y="213" width="36" height="10"/>
+    <rect x="998" y="240" width="26" height="160"/>
+    <rect x="1028" y="250" width="24" height="150"/>
+  </g>
+
+  <!-- Far right cluster -->
+  <g fill="url(#bldgM)">
+    <rect x="1070" y="255" width="26" height="145"/>
+    <rect x="1100" y="240" width="30" height="160"/>
+    <rect x="1134" y="260" width="24" height="140"/>
+    <rect x="1162" y="250" width="20" height="150"/>
+  </g>
+
+  <!-- Rightmost distant buildings -->
+  <g fill="#a0b4bc" opacity="0.7">
+    <rect x="1210" y="265" width="26" height="135"/>
+    <rect x="1240" y="275" width="22" height="125"/>
+    <rect x="1266" y="260" width="28" height="140"/>
+    <rect x="1300" y="270" width="24" height="130"/>
+    <rect x="1328" y="258" width="30" height="142"/>
+    <rect x="1362" y="268" width="22" height="132"/>
+    <rect x="1388" y="278" width="26" height="122"/>
+    <rect x="1416" y="265" width="24" height="135"/>
+  </g>
+
+  <!-- Water / Marina Bay -->
+  <rect x="0" y="395" width="1440" height="105" fill="url(#water)"/>
+
+  <!-- Water reflections -->
+  <g opacity="0.18" fill="white">
+    <rect x="440" y="400" width="130" height="4" rx="2"/>
+    <rect x="460" y="408" width="90" height="3" rx="1"/>
+    <rect x="300" y="402" width="80" height="3" rx="1"/>
+    <rect x="800" y="405" width="100" height="3" rx="1"/>
+    <rect x="870" y="412" width="70" height="2" rx="1"/>
+  </g>
+
+  <!-- Floating boat/barge silhouette -->
+  <g fill="#6a8090" opacity="0.7">
+    <ellipse cx="760" cy="420" rx="50" ry="8"/>
+    <rect x="740" y="408" width="40" height="14" rx="2"/>
+    <rect x="755" y="398" width="6" height="12"/>
+  </g>
+
+  <!-- Ground / Promenade -->
+  <rect x="0" y="392" width="1440" height="8" fill="#7a9090" opacity="0.6"/>
+
+  <!-- Trees along promenade -->
+  <g fill="#5a9060" opacity="0.8">
+    <ellipse cx="100" cy="390" rx="14" ry="18"/>
+    <rect x="98" y="390" width="4" height="10"/>
+    <ellipse cx="150" cy="388" rx="12" ry="16"/>
+    <rect x="148" y="388" width="4" height="10"/>
+    <ellipse cx="1300" cy="390" rx="14" ry="18"/>
+    <rect x="1298" y="390" width="4" height="10"/>
+    <ellipse cx="1350" cy="387" rx="12" ry="16"/>
+    <rect x="1348" y="387" width="4" height="10"/>
+  </g>
+</svg>

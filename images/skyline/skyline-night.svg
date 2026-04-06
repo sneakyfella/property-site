@@ -1,0 +1,391 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Night sky gradient -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#020408"/>
+      <stop offset="45%"  stop-color="#080e1c"/>
+      <stop offset="80%"  stop-color="#0d1a2e"/>
+      <stop offset="100%" stop-color="#142038"/>
+    </linearGradient>
+    <!-- City glow on horizon -->
+    <radialGradient id="glow1" cx="50%" cy="100%" r="55%">
+      <stop offset="0%"   stop-color="#c9a259" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#c9a259" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="72%" cy="100%" r="35%">
+      <stop offset="0%"   stop-color="#e8c97a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#e8c97a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Water gradient -->
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0e1f38" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#020408"/>
+    </linearGradient>
+    <!-- Water shimmer -->
+    <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#c9a259" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="#c9a259" stop-opacity="0.06"/>
+      <stop offset="50%"  stop-color="#c9a259" stop-opacity="0.14"/>
+      <stop offset="70%"  stop-color="#c9a259" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#c9a259" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Building silhouette color -->
+    <linearGradient id="bldg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#1a2640"/>
+      <stop offset="100%" stop-color="#0d1728"/>
+    </linearGradient>
+    <linearGradient id="bldg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#141e30"/>
+      <stop offset="100%" stop-color="#0a1220"/>
+    </linearGradient>
+    <!-- MBS sky park gradient -->
+    <linearGradient id="mbs" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#1f2e48"/>
+      <stop offset="100%" stop-color="#0d1728"/>
+    </linearGradient>
+    <!-- Reflection -->
+    <linearGradient id="refl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0d1728" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0d1728" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Moon glow -->
+    <radialGradient id="moon" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#f5e9c8" stop-opacity="0.9"/>
+      <stop offset="40%"  stop-color="#e8d4a0" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c9a259" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur2">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    <filter id="blur4">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="blur6">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="blur1">
+      <feGaussianBlur stdDeviation="1"/>
+    </filter>
+  </defs>
+
+  <!-- ══ SKY ══ -->
+  <rect width="1920" height="600" fill="url(#sky)"/>
+
+  <!-- ══ STARS ══ -->
+  <!-- Scattered tiny dots for stars -->
+  <g fill="#ffffff">
+    <circle cx="45"   cy="22"  r="0.8" opacity="0.6"/>
+    <circle cx="88"   cy="55"  r="0.6" opacity="0.4"/>
+    <circle cx="134"  cy="18"  r="1.0" opacity="0.7"/>
+    <circle cx="182"  cy="42"  r="0.7" opacity="0.5"/>
+    <circle cx="230"  cy="10"  r="0.9" opacity="0.6"/>
+    <circle cx="275"  cy="68"  r="0.5" opacity="0.4"/>
+    <circle cx="320"  cy="28"  r="1.1" opacity="0.8"/>
+    <circle cx="368"  cy="50"  r="0.6" opacity="0.5"/>
+    <circle cx="415"  cy="14"  r="0.8" opacity="0.6"/>
+    <circle cx="462"  cy="72"  r="0.7" opacity="0.4"/>
+    <circle cx="510"  cy="34"  r="1.0" opacity="0.7"/>
+    <circle cx="558"  cy="20"  r="0.5" opacity="0.5"/>
+    <circle cx="606"  cy="58"  r="0.9" opacity="0.6"/>
+    <circle cx="652"  cy="12"  r="0.7" opacity="0.5"/>
+    <circle cx="698"  cy="44"  r="0.8" opacity="0.7"/>
+    <circle cx="745"  cy="26"  r="1.1" opacity="0.5"/>
+    <circle cx="794"  cy="64"  r="0.6" opacity="0.6"/>
+    <circle cx="840"  cy="16"  r="0.9" opacity="0.4"/>
+    <circle cx="888"  cy="48"  r="0.7" opacity="0.7"/>
+    <circle cx="936"  cy="30"  r="1.0" opacity="0.5"/>
+    <circle cx="982"  cy="70"  r="0.6" opacity="0.6"/>
+    <circle cx="1028" cy="22"  r="0.8" opacity="0.4"/>
+    <circle cx="1076" cy="54"  r="1.1" opacity="0.7"/>
+    <circle cx="1122" cy="38"  r="0.7" opacity="0.5"/>
+    <circle cx="1168" cy="14"  r="0.9" opacity="0.6"/>
+    <circle cx="1215" cy="60"  r="0.6" opacity="0.4"/>
+    <circle cx="1262" cy="28"  r="1.0" opacity="0.7"/>
+    <circle cx="1308" cy="42"  r="0.8" opacity="0.5"/>
+    <circle cx="1354" cy="18"  r="0.7" opacity="0.6"/>
+    <circle cx="1400" cy="56"  r="1.1" opacity="0.4"/>
+    <circle cx="1448" cy="32"  r="0.6" opacity="0.7"/>
+    <circle cx="1494" cy="66"  r="0.9" opacity="0.5"/>
+    <circle cx="1540" cy="24"  r="0.7" opacity="0.6"/>
+    <circle cx="1586" cy="48"  r="1.0" opacity="0.4"/>
+    <circle cx="1632" cy="12"  r="0.8" opacity="0.7"/>
+    <circle cx="1678" cy="36"  r="0.6" opacity="0.5"/>
+    <circle cx="1724" cy="62"  r="0.9" opacity="0.6"/>
+    <circle cx="1770" cy="20"  r="0.7" opacity="0.4"/>
+    <circle cx="1816" cy="44"  r="1.1" opacity="0.7"/>
+    <circle cx="1862" cy="16"  r="0.6" opacity="0.5"/>
+    <circle cx="1905" cy="52"  r="0.8" opacity="0.6"/>
+    <!-- Second layer, dimmer -->
+    <circle cx="66"   cy="38"  r="0.5" opacity="0.3"/>
+    <circle cx="110"  cy="80"  r="0.4" opacity="0.25"/>
+    <circle cx="155"  cy="55"  r="0.6" opacity="0.3"/>
+    <circle cx="200"  cy="25"  r="0.5" opacity="0.25"/>
+    <circle cx="350"  cy="80"  r="0.4" opacity="0.3"/>
+    <circle cx="440"  cy="55"  r="0.5" opacity="0.25"/>
+    <circle cx="530"  cy="42"  r="0.6" opacity="0.3"/>
+    <circle cx="620"  cy="76"  r="0.4" opacity="0.25"/>
+    <circle cx="720"  cy="52"  r="0.5" opacity="0.3"/>
+    <circle cx="820"  cy="38"  r="0.6" opacity="0.25"/>
+    <circle cx="920"  cy="82"  r="0.4" opacity="0.3"/>
+    <circle cx="1020" cy="46"  r="0.5" opacity="0.25"/>
+    <circle cx="1120" cy="72"  r="0.6" opacity="0.3"/>
+    <circle cx="1220" cy="36"  r="0.4" opacity="0.25"/>
+    <circle cx="1320" cy="62"  r="0.5" opacity="0.3"/>
+    <circle cx="1420" cy="46"  r="0.6" opacity="0.25"/>
+    <circle cx="1520" cy="78"  r="0.4" opacity="0.3"/>
+    <circle cx="1620" cy="40"  r="0.5" opacity="0.25"/>
+    <circle cx="1720" cy="74"  r="0.6" opacity="0.3"/>
+    <circle cx="1820" cy="30"  r="0.4" opacity="0.25"/>
+  </g>
+
+  <!-- ══ MOON ══ -->
+  <circle cx="1680" cy="80" r="32" fill="url(#moon)" filter="url(#blur1)"/>
+  <circle cx="1680" cy="80" r="18" fill="#f8f0d8" opacity="0.75"/>
+
+  <!-- ══ CITY GLOW ON HORIZON ══ -->
+  <rect x="0" y="300" width="1920" height="300" fill="url(#glow1)"/>
+  <rect x="0" y="350" width="1920" height="250" fill="url(#glow2)"/>
+
+  <!-- ══════════════════════════════════════
+       BUILDING SILHOUETTES
+       Horizon line ~ y=420  (buildings grow upward from here)
+       ══════════════════════════════════════ -->
+
+  <!-- Far background buildings (lighter tint, slightly blurred) -->
+  <g fill="#0c1520" opacity="0.6" filter="url(#blur2)">
+    <rect x="0"    y="330" width="70"  height="90"/>
+    <rect x="80"   y="310" width="55"  height="110"/>
+    <rect x="145"  y="295" width="40"  height="125"/>
+    <rect x="195"  y="305" width="50"  height="115"/>
+    <rect x="255"  y="280" width="45"  height="140"/>
+    <rect x="310"  y="260" width="60"  height="160"/>
+    <rect x="380"  y="270" width="45"  height="150"/>
+    <rect x="435"  y="250" width="55"  height="170"/>
+    <rect x="500"  y="240" width="65"  height="180"/>
+    <rect x="575"  y="260" width="50"  height="160"/>
+    <rect x="635"  y="245" width="60"  height="175"/>
+    <rect x="705"  y="270" width="80"  height="150"/>
+    <rect x="800"  y="300" width="45"  height="120"/>
+    <rect x="855"  y="285" width="55"  height="135"/>
+    <rect x="920"  y="315" width="150" height="105"/>
+    <rect x="1080" y="295" width="50"  height="125"/>
+    <rect x="1140" y="280" width="60"  height="140"/>
+    <rect x="1210" y="300" width="40"  height="120"/>
+    <rect x="1260" y="315" width="55"  height="105"/>
+    <rect x="1700" y="295" width="55"  height="125"/>
+    <rect x="1765" y="315" width="45"  height="105"/>
+    <rect x="1820" y="300" width="60"  height="120"/>
+    <rect x="1888" y="285" width="32"  height="135"/>
+  </g>
+
+  <!-- Main foreground buildings -->
+  <!-- LEFT CLUSTER — low-mid CBD buildings -->
+  <g fill="url(#bldg)">
+    <rect x="0"    y="345" width="62"  height="75"/>
+    <rect x="72"   y="325" width="52"  height="95"/>
+    <rect x="134"  y="305" width="42"  height="115"/>
+    <!-- Antenna on this one -->
+    <rect x="152"  y="285" width="4"   height="20"/>
+    <rect x="186"  y="315" width="55"  height="105"/>
+    <rect x="251"  y="290" width="48"  height="130"/>
+    <!-- Antenna -->
+    <rect x="272"  y="270" width="4"   height="20"/>
+    <rect x="309"  y="268" width="65"  height="152"/>
+    <!-- Stepped top -->
+    <rect x="315"  y="255" width="53"  height="13"/>
+    <rect x="321"  y="244" width="41"  height="11"/>
+    <rect x="385"  y="278" width="50"  height="142"/>
+    <rect x="445"  y="258" width="58"  height="162"/>
+    <rect x="513"  y="242" width="70"  height="178"/>
+    <!-- Antenna -->
+    <rect x="544"  y="218" width="5"   height="24"/>
+    <rect x="593"  y="262" width="52"  height="158"/>
+    <rect x="655"  y="248" width="62"  height="172"/>
+  </g>
+
+  <!-- OCBC / UOB style towers — taller -->
+  <g fill="url(#bldg)">
+    <!-- One Raffles Place-style tower (very tall, slight dome on top) -->
+    <rect x="727"  y="208" width="72"  height="212"/>
+    <rect x="733"  y="200" width="60"  height="10"/>
+    <rect x="739"  y="193" width="48"  height="9"/>
+    <rect x="745"  y="188" width="36"  height="7"/>
+    <ellipse cx="763" cy="185" rx="22" ry="8"/>
+    <!-- Antenna -->
+    <rect x="761"  y="155" width="4"   height="30"/>
+
+    <!-- UOB Plaza style, rectangular top -->
+    <rect x="810"  y="225" width="65"  height="195"/>
+    <rect x="815"  y="215" width="55"  height="12"/>
+    <rect x="820"  y="207" width="45"  height="10"/>
+  </g>
+
+  <!-- ESPLANADE AREA — low buildings + the two iconic domes -->
+  <g fill="url(#bldg2)">
+    <rect x="885"  y="335" width="180" height="85"/>
+    <!-- Esplanade dome left -->
+    <ellipse cx="930" cy="335" rx="45" ry="35" fill="#0f1c2e"/>
+    <!-- Dome texture - triangular facets suggestion -->
+    <ellipse cx="930" cy="335" rx="45" ry="35" fill="none" stroke="#172538" stroke-width="1.5"/>
+    <path d="M900 335 Q930 310 960 335" fill="none" stroke="#172538" stroke-width="1"/>
+    <path d="M910 348 Q930 328 950 348" fill="none" stroke="#172538" stroke-width="0.8"/>
+    <path d="M920 338 Q930 315 940 338" fill="none" stroke="#172538" stroke-width="0.8"/>
+    <!-- Esplanade dome right -->
+    <ellipse cx="1015" cy="335" rx="45" ry="35" fill="#0f1c2e"/>
+    <ellipse cx="1015" cy="335" rx="45" ry="35" fill="none" stroke="#172538" stroke-width="1.5"/>
+    <path d="M985 335 Q1015 310 1045 335" fill="none" stroke="#172538" stroke-width="1"/>
+    <path d="M995 348 Q1015 328 1035 348" fill="none" stroke="#172538" stroke-width="0.8"/>
+    <path d="M1005 338 Q1015 315 1025 338" fill="none" stroke="#172538" stroke-width="0.8"/>
+  </g>
+
+  <!-- MID-SECTION buildings -->
+  <g fill="url(#bldg)">
+    <rect x="1070" y="310" width="52"  height="110"/>
+    <rect x="1132" y="295" width="48"  height="125"/>
+    <rect x="1190" y="305" width="55"  height="115"/>
+    <rect x="1255" y="320" width="44"  height="100"/>
+    <rect x="1309" y="308" width="50"  height="112"/>
+  </g>
+
+  <!-- ═══ MARINA BAY SANDS ═══ -->
+  <!-- Three towers -->
+  <g fill="url(#mbs)">
+    <!-- Tower 1 (left) -->
+    <rect x="1390" y="230" width="68"  height="190"/>
+    <!-- Tower 2 (middle) — slightly taller -->
+    <rect x="1468" y="218" width="68"  height="202"/>
+    <!-- Tower 3 (right) -->
+    <rect x="1546" y="228" width="68"  height="192"/>
+    <!-- Sky park (the iconic boat shape spanning all three) -->
+    <!-- Main slab -->
+    <rect x="1378" y="208" width="248" height="24" rx="4"/>
+    <!-- Slight curve upward in the middle -->
+    <rect x="1390" y="200" width="228" height="14" rx="3"/>
+    <rect x="1405" y="195" width="198" height="12" rx="3"/>
+    <!-- Infinity pool edge suggestion -->
+    <rect x="1560" y="193" width="55"  height="5" rx="2"/>
+    <!-- Rooftop structures -->
+    <rect x="1415" y="185" width="30"  height="15"/>
+    <rect x="1490" y="183" width="40"  height="17"/>
+    <rect x="1555" y="185" width="30"  height="15"/>
+    <!-- Antenna on middle tower -->
+    <rect x="1499" y="155" width="5"   height="30"/>
+  </g>
+
+  <!-- Buildings to right of MBS -->
+  <g fill="url(#bldg)">
+    <rect x="1625" y="298" width="52"  height="122"/>
+    <rect x="1687" y="312" width="45"  height="108"/>
+    <rect x="1742" y="288" width="58"  height="132"/>
+    <!-- Antenna -->
+    <rect x="1768" y="265" width="4"   height="23"/>
+    <rect x="1810" y="302" width="50"  height="118"/>
+    <rect x="1870" y="318" width="50"  height="102"/>
+  </g>
+
+  <!-- ══ LIT WINDOWS (tiny golden squares scattered on buildings) ══ -->
+  <g fill="#c9a259" opacity="0.55">
+    <!-- Left cluster windows -->
+    <rect x="316" y="270" width="3" height="3"/>
+    <rect x="322" y="280" width="3" height="3"/>
+    <rect x="330" y="270" width="3" height="3"/>
+    <rect x="316" y="290" width="3" height="3"/>
+    <rect x="324" y="285" width="3" height="3"/>
+    <rect x="452" y="265" width="3" height="3"/>
+    <rect x="460" y="275" width="3" height="3"/>
+    <rect x="468" y="265" width="3" height="3"/>
+    <rect x="452" y="285" width="3" height="3"/>
+    <rect x="518" y="250" width="3" height="3"/>
+    <rect x="526" y="260" width="3" height="3"/>
+    <rect x="534" y="250" width="3" height="3"/>
+    <rect x="518" y="270" width="3" height="3"/>
+    <rect x="542" y="260" width="3" height="3"/>
+    <!-- ORP tower windows -->
+    <rect x="734" y="215" width="3" height="3"/>
+    <rect x="742" y="225" width="3" height="3"/>
+    <rect x="750" y="215" width="3" height="3"/>
+    <rect x="758" y="225" width="3" height="3"/>
+    <rect x="734" y="235" width="3" height="3"/>
+    <rect x="750" y="235" width="3" height="3"/>
+    <rect x="734" y="250" width="3" height="3"/>
+    <rect x="750" y="250" width="3" height="3"/>
+    <rect x="766" y="235" width="3" height="3"/>
+    <rect x="742" y="260" width="3" height="3"/>
+    <rect x="758" y="260" width="3" height="3"/>
+    <!-- UOB windows -->
+    <rect x="820" y="230" width="3" height="3"/>
+    <rect x="828" y="240" width="3" height="3"/>
+    <rect x="836" y="230" width="3" height="3"/>
+    <rect x="820" y="250" width="3" height="3"/>
+    <rect x="844" y="250" width="3" height="3"/>
+    <rect x="828" y="260" width="3" height="3"/>
+    <!-- MBS windows -->
+    <rect x="1400" y="240" width="3" height="3"/>
+    <rect x="1408" y="252" width="3" height="3"/>
+    <rect x="1416" y="240" width="3" height="3"/>
+    <rect x="1424" y="252" width="3" height="3"/>
+    <rect x="1400" y="264" width="3" height="3"/>
+    <rect x="1416" y="264" width="3" height="3"/>
+    <rect x="1400" y="276" width="3" height="3"/>
+    <rect x="1408" y="288" width="3" height="3"/>
+    <rect x="1478" y="228" width="3" height="3"/>
+    <rect x="1486" y="240" width="3" height="3"/>
+    <rect x="1494" y="228" width="3" height="3"/>
+    <rect x="1478" y="252" width="3" height="3"/>
+    <rect x="1502" y="252" width="3" height="3"/>
+    <rect x="1486" y="264" width="3" height="3"/>
+    <rect x="1478" y="276" width="3" height="3"/>
+    <rect x="1556" y="238" width="3" height="3"/>
+    <rect x="1564" y="250" width="3" height="3"/>
+    <rect x="1572" y="238" width="3" height="3"/>
+    <rect x="1556" y="262" width="3" height="3"/>
+    <rect x="1580" y="262" width="3" height="3"/>
+    <rect x="1564" y="274" width="3" height="3"/>
+    <!-- Right buildings -->
+    <rect x="1635" y="305" width="3" height="3"/>
+    <rect x="1643" y="315" width="3" height="3"/>
+    <rect x="1651" y="305" width="3" height="3"/>
+    <rect x="1752" y="295" width="3" height="3"/>
+    <rect x="1760" y="305" width="3" height="3"/>
+    <rect x="1768" y="295" width="3" height="3"/>
+    <rect x="1776" y="305" width="3" height="3"/>
+  </g>
+
+  <!-- ══ HORIZON GLOW behind buildings ══ -->
+  <rect x="0" y="390" width="1920" height="30" fill="#c9a259" opacity="0.06" filter="url(#blur4)"/>
+
+  <!-- ══ WATER ══ -->
+  <rect x="0" y="420" width="1920" height="180" fill="url(#water)"/>
+
+  <!-- Water surface line -->
+  <path d="M0 420 Q480 418 960 420 Q1440 422 1920 420" fill="none" stroke="#c9a259" stroke-width="0.6" opacity="0.25"/>
+
+  <!-- Water shimmer lines -->
+  <rect x="0" y="425" width="1920" height="8" fill="url(#shimmer)"/>
+  <rect x="0" y="438" width="1920" height="4" fill="url(#shimmer)" opacity="0.5"/>
+  <rect x="0" y="448" width="1920" height="3" fill="url(#shimmer)" opacity="0.3"/>
+
+  <!-- Building reflections in water (flipped, faded) -->
+  <g transform="translate(0,840) scale(1,-1)" opacity="0.18" filter="url(#blur2)">
+    <!-- Mirror of main buildings, clipped to water zone y>420 -->
+    <rect x="309"  y="268" width="65"  height="80"/>
+    <rect x="445"  y="258" width="58"  height="90"/>
+    <rect x="513"  y="242" width="70"  height="100"/>
+    <rect x="727"  y="208" width="72"  height="130"/>
+    <rect x="810"  y="225" width="65"  height="115"/>
+    <rect x="1390" y="230" width="68"  height="100"/>
+    <rect x="1468" y="218" width="68"  height="112"/>
+    <rect x="1546" y="228" width="68"  height="102"/>
+    <rect x="1378" y="208" width="248" height="14"/>
+  </g>
+
+  <!-- MBS light reflection on water (the infinity pool glow) -->
+  <ellipse cx="1502" cy="430" rx="150" ry="12" fill="#c9a259" opacity="0.06" filter="url(#blur4)"/>
+  <ellipse cx="1502" cy="435" rx="80"  ry="6"  fill="#c9a259" opacity="0.08" filter="url(#blur2)"/>
+
+  <!-- Moon reflection on water -->
+  <ellipse cx="1680" cy="432" rx="30" ry="8" fill="#f5e9c8" opacity="0.08" filter="url(#blur4)"/>
+
+  <!-- Overall dark overlay at bottom for fade -->
+  <rect x="0" y="550" width="1920" height="50" fill="url(#sky)" opacity="0.8"/>
+</svg>

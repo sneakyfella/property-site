@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Listing — Your Name</title>
+  <meta name="description" content="Property listing details.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* Extra padding so gallery starts below nav */
+    .photo-gallery { margin-top: var(--nav-h); }
+    .gallery-item  { cursor: zoom-in; }
+  </style>
+</head>
+<body data-page="listing">
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Your<em>Name</em></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="listings.html">Listings</a>
+        <a href="index.html#about">About</a>
+        <a href="contact.html" class="nav-cta">Enquire Now</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="listings.html">Listings</a>
+    <a href="index.html#about">About</a>
+    <a href="contact.html">Enquire Now</a>
+  </div>
+
+  <!-- ═══════════════ LISTING CONTENT (injected by app.js) ═══════════════ -->
+  <div id="listingRoot"></div>
+
+  <!-- ═══════════════ LIGHTBOX ═══════════════ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" aria-label="Close">✕</button>
+    <button class="lb-nav lb-prev" aria-label="Previous">‹</button>
+    <img class="lb-img" src="" alt="Property photo">
+    <button class="lb-nav lb-next" aria-label="Next">›</button>
+    <div class="lb-counter"></div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Your<em>Name</em></div>
+          <p>CEA Licensed Property Agent in Singapore.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="listings.html">Listings</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Property Types</h5>
+          <ul class="footer-links">
+            <li><a href="listings.html?type=condo">Condominiums</a></li>
+            <li><a href="listings.html?type=hdb">HDB Flats</a></li>
+            <li><a href="listings.html?type=landed">Landed Homes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-links">
+            <li><a href="tel:+6591234567">+65 9123 4567</a></li>
+            <li><a href="mailto:agent@example.com">agent@example.com</a></li>
+            <li><a href="https://wa.me/6591234567" target="_blank">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Your Name. CEA Reg. No. RXXXXXXXX. All rights reserved.</p>
+        <p>This advertisement has not been reviewed by the Council for Estate Agencies.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

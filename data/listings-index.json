@@ -1,0 +1,17 @@
+{
+  "_comment": "Master listing index. Add new listings here after creating their folder + listing.json",
+  "listings": [
+    {
+      "id": "orchard-valley",
+      "active": true
+    },
+    {
+      "id": "marina-bay-suites",
+      "active": true
+    },
+    {
+      "id": "sentosa-cove",
+      "active": true
+    }
+  ]
+}

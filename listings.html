@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listings — Your Name Property Agent</title>
+  <meta name="description" content="Browse all available Singapore properties — condominiums, HDB flats, landed homes. Contact Your Name for viewings.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="listings">
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Your<em>Name</em></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="listings.html">Listings</a>
+        <a href="index.html#about">About</a>
+        <a href="contact.html" class="nav-cta">Enquire Now</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="listings.html">Listings</a>
+    <a href="index.html#about">About</a>
+    <a href="contact.html">Enquire Now</a>
+  </div>
+
+  <!-- ═══════════════ PAGE HEADER ═══════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <span class="eyebrow">Properties</span>
+      <h1>All Listings</h1>
+      <p style="max-width:480px;margin:0.5rem auto 0">Browse our full portfolio of available Singapore properties.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ LISTINGS ═══════════════ -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Filter bar -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
+        <div class="filter-bar" style="margin-bottom:0">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="sale">For Sale</button>
+          <button class="filter-btn" data-filter="rent">For Rent</button>
+          <button class="filter-btn" data-filter="featured">Featured</button>
+          <button class="filter-btn" data-filter="condo">Condo</button>
+          <button class="filter-btn" data-filter="hdb">HDB</button>
+          <button class="filter-btn" data-filter="landed">Landed</button>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);white-space:nowrap">
+          Showing <strong id="listingCount" style="color:var(--text)">—</strong> listings
+        </p>
+      </div>
+
+      <!-- Grid — injected by app.js -->
+      <div id="listingsGrid" class="listings-grid"></div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="section-sm" style="background:var(--bg-2);border-top:1px solid var(--border-dim)">
+    <div class="container" style="text-align:center">
+      <h3 class="reveal">Don't see what you're looking for?</h3>
+      <p class="reveal" style="margin:0.75rem auto 2rem;max-width:440px">I have access to off-market listings and new launches. Get in touch and I'll find the right property for you.</p>
+      <a href="contact.html" class="btn btn-primary reveal">Contact Me</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Your<em>Name</em></div>
+          <p>CEA Licensed Property Agent in Singapore.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="listings.html">Listings</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Property Types</h5>
+          <ul class="footer-links">
+            <li><a href="listings.html?type=condo">Condominiums</a></li>
+            <li><a href="listings.html?type=hdb">HDB Flats</a></li>
+            <li><a href="listings.html?type=landed">Landed Homes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-links">
+            <li><a href="tel:+6591234567">+65 9123 4567</a></li>
+            <li><a href="mailto:agent@example.com">agent@example.com</a></li>
+            <li><a href="https://wa.me/6591234567" target="_blank">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Your Name. CEA Reg. No. RXXXXXXXX. All rights reserved.</p>
+        <p>This advertisement has not been reviewed by the Council for Estate Agencies.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
