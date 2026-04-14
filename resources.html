@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources — Joshua Chew</title>
+  <meta name="description" content="Free guides and tools for Singapore property buyers and sellers — purchase timelines, stamp duty reference, glossary and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* ── RESOURCE TAB PANEL SWITCHING ───────────────── */
+    .res-panel { display: none; }
+    .res-panel.active { display: block; }
+
+    /* ── TAB FONT SIZES — match site-wide .filter-btn (0.75rem) ── */
+    .tl-wrap .tab {
+      font-size: 0.75rem !important;
+    }
+    .tl-wrap .toggle-pill button {
+      font-size: 0.75rem !important;
+    }
+
+    /* ── DUTY / GLOSSARY LAYOUT ─────────────────────── */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+    .ref-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .ref-block-head {
+      padding: 1rem 1.25rem 0.75rem;
+      border-bottom: 1px solid var(--border-dim);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .ref-block-head h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0;
+    }
+    .duty-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+    .duty-table th {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.6rem 1.25rem;
+      text-align: left;
+      background: var(--bg-card-2);
+      border-bottom: 1px solid var(--border-dim);
+    }
+    .duty-table td {
+      padding: 0.6rem 1.25rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-dim);
+      vertical-align: top;
+    }
+    .duty-table tr:last-child td { border-bottom: none; }
+    .duty-table td:last-child { text-align: right; color: var(--text); font-weight: 500; }
+    .duty-table .highlight td { background: rgba(201,162,89,0.06); }
+    .duty-table .highlight td:last-child { color: var(--gold); }
+    .absd-table td { text-align: center; }
+    .absd-table td:first-child { text-align: left; }
+    .absd-table td:last-child { text-align: center; }
+    .duty-zero { color: var(--text-muted) !important; font-weight: 400 !important; }
+    .ref-note {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: var(--r-md);
+      display: flex; align-items: flex-start; gap: 0.875rem;
+    }
+    .ref-note p { font-size: 0.84rem; margin: 0; line-height: 1.6; }
+
+    /* ── GLOSSARY ────────────────────────────────────── */
+    .gloss-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+    .gloss-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .gloss-block-head {
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid var(--border-dim);
+      background: var(--bg-card-2);
+    }
+    .gloss-block-head h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0;
+    }
+    .gloss-list { list-style: none; padding: 0; margin: 0; }
+    .gloss-item {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border-dim);
+    }
+    .gloss-item:last-child { border-bottom: none; }
+    .gloss-term {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .gloss-def {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .gloss-abbr {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--gold-dark);
+      background: var(--gold-glow);
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    @media (max-width: 768px) {
+      .ref-grid, .gloss-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── TIMELINE TOOL — DARK THEME OVERRIDES ────────
+       All selectors scoped to .tl-wrap to avoid any
+       conflict with main.css                          */
+    .tl-wrap {
+      font-family: 'DM Sans', sans-serif;
+    }
+    /* Type tabs (HDB / Private / Commercial) */
+    .tl-wrap .tabs {
+      display: flex; gap: 6px; margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .tl-wrap .tab {
+      padding: 0.38rem 1rem;
+      border: 1px solid var(--border-dim);
+      border-radius: 100px;
+      cursor: pointer;
+      font-size: 0.75rem; font-weight: 500;
+      background: transparent;
+      color: var(--text-muted);
+      transition: all .2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .tl-wrap .tab:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .tl-wrap .tab.active {
+      background: var(--gold-glow);
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+    /* Buyer / Seller toggle */
+    .tl-wrap .toggle-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem;
+    }
+    .tl-wrap .toggle-pill {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .tl-wrap .toggle-pill button {
+      padding: 0.32rem 1.1rem;
+      font-size: 0.75rem; font-weight: 500;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-muted);
+      transition: all .15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .tl-wrap .toggle-pill button.active {
+      background: var(--gold);
+      color: var(--bg);
+    }
+    /* Commission banner */
+    /* Summary bar */
+    .tl-wrap .summary-bar {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 1.5rem;
+      padding: 12px 16px;
+      border: 1px solid var(--border-dim);
+      border-radius: var(--r-sm);
+      background: var(--bg-card);
+      flex-wrap: wrap;
+    }
+    .tl-wrap .summary-item {
+      display: flex; flex-direction: column; gap: 2px; padding: 0 12px;
+    }
+    .tl-wrap .summary-item:first-child { padding-left: 0; }
+    .tl-wrap .summary-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em; }
+    .tl-wrap .summary-val {
+      font-size: 1.25rem; font-weight: 500;
+      color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .tl-wrap .summary-divider {
+      width: 1px; background: var(--border-dim); height: 32px; flex-shrink: 0;
+    }
+    /* Timeline steps */
+    .tl-wrap .timeline { position: relative; }
+    .tl-wrap .step { display: flex; gap: 14px; align-items: stretch; }
+    .tl-wrap .step-left {
+      display: flex; flex-direction: column; align-items: center; min-width: 28px;
+    }
+    .tl-wrap .dot {
+      width: 22px; height: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 500; flex-shrink: 0; margin-top: 10px;
+    }
+    .tl-wrap .dot-hdb    { background: rgba(159,225,203,0.25); color: #9fe1cb; }
+    .tl-wrap .dot-cov    { background: rgba(250,199,117,0.25); color: #fac775; }
+    .tl-wrap .dot-private { background: rgba(181,212,244,0.25); color: #b5d4f4; }
+    .tl-wrap .dot-commercial { background: rgba(250,199,117,0.25); color: #fac775; }
+    .tl-wrap .dot-comm   { background: rgba(192,221,151,0.25); color: #c0dd97; }
+    .tl-wrap .connector {
+      width: 2px; flex: 1; background: rgba(255,255,255,0.08); margin: 2px 0;
+    }
+    .tl-wrap .connector-cov {
+      width: 2px; flex: 1; background: rgba(201,162,89,0.3); margin: 2px 0;
+    }
+    .tl-wrap .connector-comm {
+      width: 2px; flex: 1; background: rgba(96,153,34,0.3); margin: 2px 0;
+    }
+    .tl-wrap .step:last-child .connector,
+    .tl-wrap .step:last-child .connector-cov,
+    .tl-wrap .step:last-child .connector-comm { display: none; }
+    .tl-wrap .step-body {
+      flex: 1; padding: 14px 16px;
+      border: 1px solid var(--border-dim);
+      border-radius: var(--r-sm);
+      margin-bottom: 12px;
+      background: var(--bg-card);
+    }
+    .tl-wrap .step-body.is-cov {
+      border-color: rgba(201,162,89,0.35);
+      background: rgba(201,162,89,0.05);
+    }
+    .tl-wrap .step-body.is-comm {
+      border-color: rgba(96,153,34,0.3);
+      background: rgba(96,153,34,0.05);
+    }
+    .tl-wrap .step-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 8px; margin-bottom: 8px;
+    }
+    .tl-wrap .step-title {
+      font-size: 1rem; font-weight: 600; color: var(--text); line-height: 1.3;
+    }
+    .tl-wrap .step-duration {
+      font-size: 0.7rem; color: var(--text-muted); white-space: nowrap;
+      background: var(--bg-card-2); padding: 3px 10px; border-radius: 100px; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .tl-wrap .step-desc {
+      font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px;
+    }
+    .tl-wrap .step-section { margin-top: 12px; }
+    .tl-wrap .step-section-title {
+      font-size: 0.62rem; font-weight: 700; color: var(--gold);
+      margin-bottom: 6px; text-transform: uppercase; letter-spacing: .12em;
+    }
+    .tl-wrap .step-list {
+      list-style: disc; padding-left: 1.2rem;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .tl-wrap .step-list li { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+    .tl-wrap .step-tags { display: flex; gap: 4px; margin-top: 8px; flex-wrap: wrap; }
+    .tl-wrap .tag { font-size: 10px; padding: 2px 8px; border-radius: 100px; font-weight: 500; }
+    .tl-wrap .tag-warn  { background: rgba(201,162,89,0.15); color: var(--gold-light); }
+    .tl-wrap .tag-info  { background: rgba(99,157,220,0.15); color: #7ab8e8; }
+    .tl-wrap .tag-ok    { background: rgba(96,180,140,0.15); color: #7fcfa8; }
+    .tl-wrap .tag-amt   { background: var(--bg-card-2); color: var(--text-muted); }
+    .tl-wrap .tag-cov   { background: rgba(201,162,89,0.15); color: var(--gold); }
+    .tl-wrap .tag-comm  { background: rgba(96,153,34,0.15); color: #a8d97c; }
+    .tl-wrap .badge {
+      font-size: 10px; font-weight: 500; padding: 1px 7px;
+      border-radius: 100px; margin-left: 6px; vertical-align: middle;
+    }
+    .tl-wrap .badge-cov  { background: rgba(201,162,89,0.15); color: var(--gold); }
+    .tl-wrap .badge-comm { background: rgba(96,153,34,0.15); color: #a8d97c; }
+  </style>
+</head>
+<body data-page="resources">
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="nav scrolled" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Joshua C<em>Estates</em></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="listings.html">Listings</a>
+        <a href="resources.html" class="active">Resources</a>
+        <a href="index.html#about">About</a>
+        <a href="contact.html" class="nav-cta">Enquire Now</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="listings.html">Listings</a>
+    <a href="resources.html">Resources</a>
+    <a href="index.html#about">About</a>
+    <a href="contact.html">Enquire Now</a>
+  </div>
+
+  <!-- ═══════════════ PAGE HEADER ═══════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <span class="eyebrow">Client Guides</span>
+      <h1>Resources</h1>
+      <p style="max-width:520px;margin:0.5rem auto 0">Practical tools and reference guides to help you navigate Singapore property — from purchase timelines to stamp duty and key terms.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════ RESOURCES ═══════════════ -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Resource tab bar -->
+      <div class="filter-bar" id="resourceTabs" style="margin-bottom:2.5rem">
+        <button class="filter-btn active" data-res="timelines">&#x1F4CB; Property Sale Timelines</button>
+        <button class="filter-btn" data-res="stamp-duty">&#x1F4B0; Stamp Duty Guide</button>
+        <button class="filter-btn" data-res="glossary">&#x1F4D6; Glossary</button>
+      </div>
+
+      <!-- ── PANEL: Property Timelines ──────────────── -->
+      <div id="res-timelines" class="res-panel active">
+        <div class="tl-wrap">
+          <div class="tabs">
+            <button class="tab active" onclick="setType('hdb',this)">&#x1F3E2; HDB</button>
+            <button class="tab" onclick="setType('private',this)">&#x1F3E0; Private</button>
+            <button class="tab" onclick="setType('commercial',this)">&#x1F3EA; Commercial</button>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-pill">
+              <button class="active" id="btn-buyer" onclick="setRole('buyer')">Buyer</button>
+              <button id="btn-seller" onclick="setRole('seller')">Seller</button>
+            </div>
+          </div>
+          <div id="summary-bar" class="summary-bar"></div>
+          <div id="timeline" class="timeline"></div>
+        </div>
+      </div>
+
+      <!-- ── PANEL: Stamp Duty Guide ────────────────── -->
+      <div id="res-stamp-duty" class="res-panel">
+        <div class="section-head" style="margin-bottom:2rem">
+          <span class="eyebrow">Reference</span>
+          <h2>Stamp Duty Guide</h2>
+          <div class="divider-line"></div>
+          <p style="max-width:600px;margin-top:0.75rem">Rates are applied on the higher of the purchase price or market value. All figures current as of 2024.</p>
+        </div>
+
+        <!-- BSD + SSD row -->
+        <div class="ref-grid" style="margin-bottom:2rem">
+
+          <!-- BSD Residential -->
+          <div class="ref-block reveal">
+            <div class="ref-block-head">
+              <h4>Buyer's Stamp Duty — Residential</h4>
+            </div>
+            <table class="duty-table">
+              <thead>
+                <tr><th>Purchase Price</th><th>Rate</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>First $180,000</td><td>1%</td></tr>
+                <tr><td>Next $180,000</td><td>2%</td></tr>
+                <tr><td>Next $640,000</td><td>3%</td></tr>
+                <tr><td>Next $500,000</td><td>4%</td></tr>
+                <tr><td>Next $1,500,000</td><td>5%</td></tr>
+                <tr class="highlight"><td>Remaining amount</td><td>6%</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- BSD Non-Residential -->
+          <div class="ref-block reveal reveal-delay-1">
+            <div class="ref-block-head">
+              <h4>Buyer's Stamp Duty — Non-Residential</h4>
+            </div>
+            <table class="duty-table">
+              <thead>
+                <tr><th>Purchase Price</th><th>Rate</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>First $180,000</td><td>1%</td></tr>
+                <tr><td>Next $180,000</td><td>2%</td></tr>
+                <tr class="highlight"><td>Remaining amount</td><td>3%</td></tr>
+              </tbody>
+            </table>
+            <div style="padding:0.9rem 1.25rem;border-top:1px solid var(--border-dim)">
+              <p style="font-size:0.78rem;color:var(--text-muted);margin:0">Applies to commercial, industrial, and other non-residential properties.</p>
+            </div>
+          </div>
+
+          <!-- SSD -->
+          <div class="ref-block reveal reveal-delay-2">
+            <div class="ref-block-head">
+              <h4>Seller's Stamp Duty — Residential</h4>
+            </div>
+            <table class="duty-table">
+              <thead>
+                <tr><th>Holding Period</th><th>Rate</th></tr>
+              </thead>
+              <tbody>
+                <tr class="highlight"><td>Up to 1 year</td><td>12%</td></tr>
+                <tr><td>More than 1, up to 2 years</td><td>8%</td></tr>
+                <tr><td>More than 2, up to 3 years</td><td>4%</td></tr>
+                <tr><td>More than 3 years</td><td class="duty-zero">None</td></tr>
+              </tbody>
+            </table>
+            <div style="padding:0.9rem 1.25rem;border-top:1px solid var(--border-dim)">
+              <p style="font-size:0.78rem;color:var(--text-muted);margin:0">No SSD applies to commercial or industrial properties.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ABSD full-width -->
+        <div class="ref-block reveal" style="margin-bottom:2rem">
+          <div class="ref-block-head">
+            <h4>Additional Buyer's Stamp Duty (ABSD)</h4>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="duty-table absd-table" style="min-width:540px">
+              <thead>
+                <tr>
+                  <th style="text-align:left">Buyer Profile</th>
+                  <th style="text-align:center">1st Property</th>
+                  <th style="text-align:center">2nd Property</th>
+                  <th style="text-align:center">3rd &amp; Beyond</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Singapore Citizen</td>
+                  <td class="duty-zero">0%</td>
+                  <td>20%</td>
+                  <td>30%</td>
+                </tr>
+                <tr>
+                  <td>Singapore PR</td>
+                  <td>5%</td>
+                  <td>30%</td>
+                  <td>35%</td>
+                </tr>
+                <tr class="highlight">
+                  <td>Foreigner</td>
+                  <td>60%</td>
+                  <td>60%</td>
+                  <td>60%</td>
+                </tr>
+                <tr>
+                  <td>Entity (company, trust)</td>
+                  <td>65%</td>
+                  <td>65%</td>
+                  <td>65%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="padding:0.9rem 1.25rem;border-top:1px solid var(--border-dim)">
+            <p style="font-size:0.78rem;color:var(--text-muted);margin:0">ABSD applies to residential properties only. Couples may be eligible for ABSD remission under certain conditions — speak to a lawyer or your agent for specifics.</p>
+          </div>
+        </div>
+
+        <div class="ref-note reveal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <p>Want a personalised stamp duty estimate for a specific property? <a href="contact.html" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px">Get in touch</a> and I'll work through the numbers with you.</p>
+        </div>
+      </div>
+
+      <!-- ── PANEL: Glossary ────────────────────────── -->
+      <div id="res-glossary" class="res-panel">
+        <div class="section-head" style="margin-bottom:2rem">
+          <span class="eyebrow">Reference</span>
+          <h2>Property Glossary</h2>
+          <div class="divider-line"></div>
+          <p style="max-width:600px;margin-top:0.75rem">Key terms you'll encounter when buying, selling, or renting Singapore property.</p>
+        </div>
+
+        <div class="gloss-grid">
+
+          <!-- Contracts & Documents -->
+          <div class="gloss-block reveal">
+            <div class="gloss-block-head"><h4>Contracts &amp; Documents</h4></div>
+            <ul class="gloss-list">
+              <li class="gloss-item">
+                <div class="gloss-term">Option to Purchase <span class="gloss-abbr">OTP</span></div>
+                <p class="gloss-def">A contract granting the buyer the right to purchase a property at an agreed price within a set period (typically 14–21 days). Exercising the OTP commits both parties to the sale.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Sale &amp; Purchase Agreement <span class="gloss-abbr">S&amp;P</span></div>
+                <p class="gloss-def">The formal contract signed after the OTP is exercised, binding both buyer and seller to the transaction terms. Drafted by the buyer's lawyer.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">HDB Flat Eligibility Letter <span class="gloss-abbr">HFE</span></div>
+                <p class="gloss-def">Mandatory for all HDB resale purchases. Issued by HDB via the MyHDBPage portal, it confirms your eligibility to buy, the CPF grants you qualify for, and your HDB loan ceiling.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Letter of Offer <span class="gloss-abbr">LOO</span></div>
+                <p class="gloss-def">Issued by a bank confirming mortgage approval terms — loan amount, interest rate, lock-in period, and repayment schedule. Accept before the bank issues the formal loan agreement.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Estate Agency Agreement <span class="gloss-abbr">EAA</span></div>
+                <p class="gloss-def">A legally required agreement between you and your agent, signed before any property viewings. Sets out the scope of services, commission rate, and exclusivity terms.</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Financing -->
+          <div class="gloss-block reveal reveal-delay-1">
+            <div class="gloss-block-head"><h4>Financing</h4></div>
+            <ul class="gloss-list">
+              <li class="gloss-item">
+                <div class="gloss-term">Loan-to-Value Ratio <span class="gloss-abbr">LTV</span></div>
+                <p class="gloss-def">The maximum loan amount as a percentage of the property value. For HDB loans it is 80%; for bank loans it is 75% for the first property, lower for subsequent ones.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Mortgage Servicing Ratio <span class="gloss-abbr">MSR</span></div>
+                <p class="gloss-def">Applies to HDB flats and Executive Condominiums. Your monthly mortgage repayment cannot exceed 30% of your gross monthly income.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Total Debt Servicing Ratio <span class="gloss-abbr">TDSR</span></div>
+                <p class="gloss-def">All monthly debt obligations — including the new mortgage — cannot exceed 55% of gross monthly income. Applies to all property loan applications.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">CPF Ordinary Account <span class="gloss-abbr">CPF OA</span></div>
+                <p class="gloss-def">Funds in your CPF Ordinary Account can be used for the down payment, mortgage repayments, and stamp duty on residential properties. Subject to the Valuation Limit and Withdrawal Limit.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Cash Over Valuation <span class="gloss-abbr">COV</span></div>
+                <p class="gloss-def">The amount a buyer pays above the HDB-assessed valuation of a resale flat. COV must be paid fully in cash and is negotiated directly between buyer and seller.</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Property Types -->
+          <div class="gloss-block reveal reveal-delay-2">
+            <div class="gloss-block-head"><h4>Property Types</h4></div>
+            <ul class="gloss-list">
+              <li class="gloss-item">
+                <div class="gloss-term">HDB Flat</div>
+                <p class="gloss-def">Public housing built and sold by the Housing &amp; Development Board. Comes with eligibility restrictions on ownership and a Minimum Occupation Period (MOP) of 5 years before resale.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Executive Condominium <span class="gloss-abbr">EC</span></div>
+                <p class="gloss-def">A hybrid between public and private housing. Initially subject to HDB eligibility rules and a 5-year MOP; fully privatised after 10 years and open to foreigners.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Build-to-Order <span class="gloss-abbr">BTO</span></div>
+                <p class="gloss-def">New HDB flats sold directly by HDB via ballot. Buyers wait 3–5 years for construction. Prices are subsidised relative to the resale market.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Strata Title</div>
+                <p class="gloss-def">Ownership of an individual unit within a shared development (e.g. a condo). The owner holds the unit's title while common areas are collectively owned through a Management Corporation Strata Title (MCST).</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">En Bloc (Collective Sale)</div>
+                <p class="gloss-def">When 80–90% of owners in a strata development agree to sell the entire site to a developer. Remaining owners are compelled to sell at the agreed price under the Land Titles (Strata) Act.</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tenure -->
+          <div class="gloss-block reveal reveal-delay-3">
+            <div class="gloss-block-head"><h4>Tenure &amp; Ownership</h4></div>
+            <ul class="gloss-list">
+              <li class="gloss-item">
+                <div class="gloss-term">Freehold</div>
+                <p class="gloss-def">Ownership in perpetuity with no expiry date. Generally commands a price premium over leasehold, and CPF usage for freehold properties approaching 30 remaining years is restricted.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">99-Year Leasehold</div>
+                <p class="gloss-def">The most common tenure for private condos and HDB flats. The remaining lease affects CPF usage, bank financing, and resale value — shorter leases face stricter restrictions.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Minimum Occupation Period <span class="gloss-abbr">MOP</span></div>
+                <p class="gloss-def">The mandatory period an HDB flat owner must physically occupy the flat before being allowed to sell on the open market or rent out the entire unit. Currently 5 years for most flat types.</p>
+              </li>
+              <li class="gloss-item">
+                <div class="gloss-term">Residential Property Act <span class="gloss-abbr">RPA</span></div>
+                <p class="gloss-def">Governs foreign ownership of Singapore property. Foreigners may generally purchase apartments and condos but cannot buy landed property without specific government approval.</p>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="ref-note reveal" style="margin-top:2rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <p>Have a term you'd like explained? <a href="contact.html" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px">Send me a message</a> — I'm happy to walk you through any part of the process.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="section-sm" style="background:var(--bg-2);border-top:1px solid var(--border-dim)">
+    <div class="container" style="text-align:center">
+      <h3 class="reveal">Have a question not covered here?</h3>
+      <p class="reveal" style="margin:0.75rem auto 2rem;max-width:440px">Every transaction is different. Reach out and I'll give you straightforward, personalised advice.</p>
+      <a href="contact.html" class="btn btn-primary reveal">Contact Me</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Joshua C<em>Estates</em></div>
+          <p>CEA Licensed Property Agent in Singapore.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="listings.html">Listings</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-links">
+            <li><a href="tel:+6588452785">+65 8845 2785</a></li>
+            <li><a href="mailto:joshuachewshiyang@gmail.com">joshuachewshiyang@gmail.com</a></li>
+            <li><a href="https://wa.me/6588452785" target="_blank">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Joshua Chew. CEA Reg. No. R072867H. All rights reserved.</p>
+        <p>This advertisement has not been reviewed by the Council for Estate Agencies.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+
+  <!-- Timeline tool data & logic -->
+  <script src="assets/js/timelines-data.js"></script>
+
+  <!-- Resource tab switching -->
+  <script>
+    (function () {
+      const tabs = document.querySelectorAll('#resourceTabs .filter-btn');
+      tabs.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          tabs.forEach(function (t) { t.classList.remove('active'); });
+          btn.classList.add('active');
+          var res = btn.dataset.res;
+          document.querySelectorAll('.res-panel').forEach(function (p) {
+            p.classList.toggle('active', p.id === 'res-' + res);
+          });
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

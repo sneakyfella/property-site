@@ -124,9 +124,10 @@ function createCard(listing) {
     ${statusBadge}
   </div>
   <div class="listing-card-body">
-    <div class="card-price">${formatPrice(listing.price)}</div>
+    <div class="card-price">${listing.price ? formatPrice(listing.price) : (listing.priceDisplay || '—')}</div>
     ${psfHtml}
     <div class="card-title">${listing.title}</div>
+    ${listing.subtitle ? `<div class="card-subtitle">${listing.subtitle}</div>` : ''}
     <div class="card-address">${ICONS.pin} ${listing.address}</div>
     <div class="card-specs">
       ${listing.bedrooms ? `<span class="spec">${ICONS.bed} ${listing.bedrooms} Bed</span>` : ''}
